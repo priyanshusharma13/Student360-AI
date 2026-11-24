@@ -1,0 +1,1225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>STUDENT360 AI | Student Life, In Sync</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="tracker.css">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar" id="sidebar">
+
+            <a class="brand" href="#">
+
+                <span class="logo">
+                    S<span>360</span>
+                </span>
+
+                <span>
+                    <b>STUDENT360</b>
+                    <small>YOUR LIFE, IN SYNC</small>
+                </span>
+
+            </a>
+
+            <p class="nav-caption">WORKSPACE</p>
+
+            <nav>
+
+                <button class="nav active" data-page="dashboard">
+                    ◫ <span>Overview</span>
+                </button>
+
+                <button class="nav" data-page="planner">
+                    ▦ <span>Study planner</span>
+                </button>
+
+                <button class="nav" data-page="expenses">
+                    ₹ <span>Expense tracker</span>
+                </button>
+
+                <button class="nav" data-page="insights">
+                    ✧ <span>AI insights</span>
+                </button>
+
+            </nav>
+
+            <div class="side-bottom">
+
+                <div class="side-note">
+                    <b>Small steps. Big progress.</b>
+
+                    <p>
+                        Build better study and money habits,
+                        one day at a time.
+                    </p>
+                </div>
+
+                <div class="profile">
+
+                    <div class="avatar">S</div>
+
+                    <div>
+                        <b id="profileName">Student</b>
+                        <small>Personal workspace</small>
+                    </div>
+
+                    <button id="editName" class="dots">
+                        •••
+                    </button>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main>
+
+            <!-- TOP NAVIGATION -->
+
+            <header class="topbar">
+
+                <button id="menu" class="menu">
+                    ☰
+                </button>
+
+                <div>
+                    Workspace
+                    <span>/</span>
+                    <b id="pageTitle">Overview</b>
+                </div>
+
+                <div class="topright">
+
+                    <small id="today"></small>
+
+                    <button id="theme" class="theme">
+                        ◐
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- ================= DASHBOARD ================= -->
+
+            <section class="page active" id="dashboard">
+
+                <div class="intro">
+
+                    <div>
+
+                        <label>● YOUR PERSONAL STUDENT HUB</label>
+
+                        <h1>
+                            Good to see you,
+                            <span id="helloName">Student</span>
+                            <i>.</i>
+                        </h1>
+
+                        <p>
+                            Your academic goals and financial habits,
+                            all in one place.
+                        </p>
+
+                    </div>
+
+                    <button class="primary" data-goto="planner">
+                        ＋ Plan your day
+                    </button>
+
+                </div>
+
+
+                <!-- Hero Section -->
+
+                <div class="hero">
+
+                    <div>
+
+                        <small>YOUR DAILY MOMENTUM</small>
+
+                        <h2>
+                            Make today
+                            <br>
+                            <em>count.</em>
+                        </h2>
+
+                        <p id="heroText">
+                            A little progress in both studies
+                            and savings adds up.
+                        </p>
+
+                        <button class="hero-link" data-goto="insights">
+                            View your daily insights ↗
+                        </button>
+
+                    </div>
+
+                    <div class="orbit">
+
+                        <div class="core">360°</div>
+
+                        <span class="chip c1">✎ Study</span>
+                        <span class="chip c2">₹ Money</span>
+                        <span class="chip c3">✦ Focus</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Statistics -->
+
+                <div class="section-title">
+
+                    <div>
+                        <label>AT A GLANCE</label>
+                        <h2>Your overview</h2>
+                    </div>
+
+                    <small>Updates as you work</small>
+
+                </div>
+
+
+                <div class="stats">
+
+                    <article class="stat">
+
+                        <div>
+                            Study tasks completed
+                            <b class="icon purple">✓</b>
+                        </div>
+
+                        <strong id="doneStat">0 / 0</strong>
+
+                        <div class="track">
+                            <span id="studyBar"></span>
+                        </div>
+
+                        <small id="studyHint">
+                            Add your first study task
+                        </small>
+
+                    </article>
+
+
+                    <article class="stat">
+
+                        <div>
+                            Study time planned
+                            <b class="icon blue">◷</b>
+                        </div>
+
+                        <strong id="hoursStat">0h</strong>
+
+                        <small>Total planned hours</small>
+
+                    </article>
+
+
+                    <article class="stat">
+
+                        <div>
+                            Monthly spending
+                            <b class="icon orange">↗</b>
+                        </div>
+
+                        <strong id="spentStat">₹0</strong>
+
+                        <small id="budgetHint">
+                            Set a monthly budget
+                        </small>
+
+                    </article>
+
+
+                    <article class="stat">
+
+                        <div>
+                            Money remaining
+                            <b class="icon green">₹</b>
+                        </div>
+
+                        <strong id="remainStat">₹5,000</strong>
+
+                        <small>Budget minus expenses</small>
+
+                    </article>
+
+                </div>
+
+
+                <!-- Dashboard Columns -->
+
+                <div class="columns">
+
+                    <article class="panel">
+
+                        <div class="panel-head">
+
+                            <div>
+                                <label>ACADEMICS</label>
+                                <h3>Upcoming study tasks</h3>
+                            </div>
+
+                            <button class="link" data-goto="planner">
+                                View planner ↗
+                            </button>
+
+                        </div>
+
+                        <div id="dashTasks" class="empty">
+                            No study tasks yet.
+                            Add your first task in Study Planner.
+                        </div>
+
+                    </article>
+
+
+                    <article class="panel">
+
+                        <div class="panel-head">
+
+                            <div>
+                                <label>FINANCES</label>
+                                <h3>Spending breakdown</h3>
+                            </div>
+
+                            <button class="link" data-goto="expenses">
+                                Details ↗
+                            </button>
+
+                        </div>
+
+                        <div id="dashBreakdown" class="empty">
+                            Add expenses to see where your money goes.
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- Quick Actions -->
+
+                <div class="columns lower">
+
+                    <article class="panel">
+
+                        <div class="panel-head">
+
+                            <div>
+                                <label>QUICK ACTION</label>
+                                <h3>Stay on track</h3>
+                            </div>
+
+                            <b class="spark">✦</b>
+
+                        </div>
+
+
+                        <div class="quick">
+
+                            <button data-goto="planner">
+                                ＋
+
+                                <span>
+                                    <b>Add study task</b>
+                                    <small>Plan your next session</small>
+                                </span>
+
+                                →
+                            </button>
+
+
+                            <button data-goto="expenses">
+                                ₹
+
+                                <span>
+                                    <b>Record an expense</b>
+                                    <small>Keep your budget updated</small>
+                                </span>
+
+                                →
+                            </button>
+
+
+                            <button data-goto="insights">
+                                ✧
+
+                                <span>
+                                    <b>Ask Student Assistant</b>
+                                    <small>Get a combined overview</small>
+                                </span>
+
+                                →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="quote">
+
+                        <b>“</b>
+
+                        <h3>
+                            Discipline is choosing what you want
+                            most over what you want now.
+                        </h3>
+
+                        <small>YOUR DAILY REMINDER</small>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= STUDY PLANNER ================= -->
+
+            <section class="page" id="planner">
+
+                <div class="intro">
+
+                    <div>
+
+                        <label>ACADEMIC COMMAND CENTER</label>
+
+                        <h1>
+                            Study planner<i>.</i>
+                        </h1>
+
+                        <p>
+                            Turn your academic goals into a plan
+                            you can actually follow.
+                        </p>
+
+                    </div>
+
+                    <button class="primary" id="newTask">
+                        ＋ Add study task
+                    </button>
+
+                </div>
+
+
+                <!-- Planner Statistics -->
+
+                <div class="stats three">
+
+                    <article class="stat">
+
+                        <div>
+                            Total tasks
+                            <b class="icon purple">▦</b>
+                        </div>
+
+                        <strong id="totalTasks">0</strong>
+
+                        <small>Across all subjects</small>
+
+                    </article>
+
+
+                    <article class="stat">
+
+                        <div>
+                            Completed
+                            <b class="icon green">✓</b>
+                        </div>
+
+                        <strong id="completedTasks">0</strong>
+
+                        <small>Tasks checked off</small>
+
+                    </article>
+
+
+                    <article class="stat">
+
+                        <div>
+                            Planned study hours
+                            <b class="icon blue">◷</b>
+                        </div>
+
+                        <strong id="plannedHours">0h</strong>
+
+                        <small>Estimated duration</small>
+
+                    </article>
+
+                </div>
+
+
+                <!-- Tasks and Filters -->
+
+                <article class="panel">
+
+                    <div class="panel-head wrap">
+
+                        <div>
+                            <label>YOUR WORKLOAD</label>
+                            <h3>Study tasks & deadlines</h3>
+                        </div>
+
+
+                        <div class="filters">
+
+                            <select id="taskFilter">
+
+                                <option value="all">
+                                    All tasks
+                                </option>
+
+                                <option value="pending">
+                                    Pending
+                                </option>
+
+                                <option value="done">
+                                    Completed
+                                </option>
+
+                            </select>
+
+
+                            <select id="subjectFilter">
+
+                                <option value="all">
+                                    All subjects
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div id="taskList" class="empty">
+                        No tasks yet.
+                        Add a subject, deadline and estimated duration.
+                    </div>
+
+                </article>
+
+
+                <div class="tip">
+
+                    ✦
+
+                    <span>
+                        <b>Planning tip</b>
+
+                        <small>
+                            Break large topics into smaller sessions.
+                            A realistic plan is better than an overloaded timetable.
+                        </small>
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= EXPENSE TRACKER ================= -->
+
+            <section class="page" id="expenses">
+
+                <div class="intro">
+
+                    <div>
+
+                        <label>PERSONAL FINANCE CENTER</label>
+
+                        <h1>
+                            Expense tracker<i>.</i>
+                        </h1>
+
+                        <p>
+                            Understand your spending, protect your budget
+                            and grow your savings.
+                        </p>
+
+                    </div>
+
+                    <button class="primary" id="newExpense">
+                        ＋ Add expense
+                    </button>
+
+                </div>
+
+
+                <!-- Monthly Budget -->
+
+                <div class="budget-banner">
+
+                    <div>
+
+                        <label>MONTHLY BUDGET</label>
+
+                        <h2 id="budgetValue">₹5,000</h2>
+
+                        <p id="budgetMessage">
+                            A clear budget gives every rupee a purpose.
+                        </p>
+
+                    </div>
+
+                    <button class="outline" id="editBudget">
+                        Edit budget
+                    </button>
+
+
+                    <div class="budget-meter">
+
+                        <div>
+                            <span>Budget used</span>
+                            <b id="budgetPct">0%</b>
+                        </div>
+
+                        <div class="track">
+                            <span id="budgetBar"></span>
+                        </div>
+
+                        <small id="budgetLeft">
+                            ₹5,000 remaining
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Expense Statistics -->
+
+                <div class="stats three">
+
+                    <article class="stat">
+
+                        <div>
+                            Spent this month
+                            <b class="icon orange">↗</b>
+                        </div>
+
+                        <strong id="monthSpent">₹0</strong>
+
+                        <small>Recorded expenses</small>
+
+                    </article>
+
+
+                    <article class="stat">
+
+                        <div>
+                            Available balance
+                            <b class="icon green">₹</b>
+                        </div>
+
+                        <strong id="available">₹5,000</strong>
+
+                        <small>Budget minus expenses</small>
+
+                    </article>
+
+
+                    <article class="stat">
+
+                        <div>
+                            Transactions
+                            <b class="icon blue">⇄</b>
+                        </div>
+
+                        <strong id="transactionCount">0</strong>
+
+                        <small>This month</small>
+
+                    </article>
+
+                </div>
+
+
+                <!-- Expense Analysis -->
+
+                <div class="columns">
+
+                    <article class="panel">
+
+                        <div class="panel-head">
+
+                            <div>
+                                <label>WHERE IT GOES</label>
+                                <h3>Category breakdown</h3>
+                            </div>
+
+                        </div>
+
+                        <div id="categoryBreakdown" class="empty">
+                            Your spending categories will appear here.
+                        </div>
+
+                    </article>
+
+
+                    <article class="panel">
+
+                        <div class="panel-head">
+
+                            <div>
+                                <label>RECENT ACTIVITY</label>
+                                <h3>Transactions</h3>
+                            </div>
+
+                        </div>
+
+                        <div id="transactions" class="empty">
+                            No expenses recorded yet.
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- What-If Savings Simulator -->
+
+                <article class="panel simulator">
+
+                    <div class="panel-head">
+
+                        <div>
+                            <label>PLAN AHEAD</label>
+                            <h3>What-if savings simulator</h3>
+                        </div>
+
+                        <b class="spark">✧</b>
+
+                    </div>
+
+
+                    <p>
+                        Explore how small daily changes could affect
+                        your savings. These are estimates.
+                    </p>
+
+                    <label>
+                        If you save this much per day
+                    </label>
+
+
+                    <div class="range">
+
+                        <input
+                            type="range"
+                            id="dailySave"
+                            min="0"
+                            max="200"
+                            step="5"
+                            value="30"
+                        >
+
+                        <b id="dailyValue">₹30</b>
+
+                    </div>
+
+
+                    <div class="sim-results">
+
+                        <div>
+                            <small>Monthly potential</small>
+                            <b id="monthlySave">₹900</b>
+                        </div>
+
+                        <div>
+                            <small>Yearly potential</small>
+                            <b id="yearlySave">₹10,950</b>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- ================= AI INSIGHTS ================= -->
+
+            <section class="page" id="insights">
+
+                <div class="intro">
+
+                    <div>
+
+                        <label>YOUR PERSONAL STUDENT ASSISTANT</label>
+
+                        <h1>
+                            AI insights<i>.</i>
+                        </h1>
+
+                        <p>
+                            A unified view of your study habits
+                            and spending patterns.
+                        </p>
+
+                    </div>
+
+                    <span class="status">
+                        ● PERSONALIZED ANALYSIS
+                    </span>
+
+                </div>
+
+
+                <!-- AI Assistant Panel -->
+
+                <article class="panel assistant">
+
+                    <div class="assistant-head">
+
+                        <div class="assistant-logo">
+                            ✧
+                        </div>
+
+                        <div>
+                            <b>Student360 Assistant</b>
+
+                            <small>
+                                Personalized insights from your saved activity
+                            </small>
+                        </div>
+
+                        <span>STUDENT INTELLIGENCE</span>
+
+                    </div>
+
+
+                    <div class="assistant-welcome">
+
+                        <h3>
+                            Let's make your student life more balanced.
+                        </h3>
+
+                        <p>
+                            I review your study plan and spending activity
+                            to highlight practical next steps.
+                            Add your data in the Planner and Expense Tracker
+                            to get relevant insights.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Dynamic Insight Cards -->
+
+                    <div
+                        id="insightCards"
+                        class="insights-grid"
+                    ></div>
+
+
+                    <!-- Gemini AI Chat Interface -->
+
+                    <div class="ai-chat">
+
+                        <h3>✧ Ask Student360 AI</h3>
+
+                        <p>
+                            Ask anything about your studies,
+                            expenses or budget.
+                        </p>
+
+
+                        <textarea
+                            id="aiQuestion"
+                            rows="3"
+                            maxlength="1500"
+                            placeholder="Example: How can I save ₹500 this month while managing my study schedule?"
+                        ></textarea>
+
+
+                        <button
+                            type="button"
+                            class="primary"
+                            id="askAI"
+                        >
+                            ✧ Ask Student360 AI
+                        </button>
+
+
+                        <div
+                            id="aiAnswer"
+                            class="ai-answer"
+                            aria-live="polite"
+                        >
+                            Your AI response will appear here.
+                        </div>
+
+                    </div>
+
+
+                    <small class="disclaimer">
+                        These suggestions are generated from the information
+                        entered in this browser. They are not professional
+                        financial or academic advice.
+                    </small>
+
+                </article>
+
+
+                <!-- Combined Academic and Financial Snapshot -->
+
+                <article class="panel">
+
+                    <div class="panel-head">
+
+                        <div>
+                            <label>CROSS-LIFE CHECK</label>
+                            <h3>Academic + financial snapshot</h3>
+                        </div>
+
+                    </div>
+
+                    <div id="snapshot" class="snapshot"></div>
+
+                </article>
+
+            </section>
+
+
+            <!-- ================= FOOTER ================= -->
+
+            <footer>
+
+                <b>STUDENT360 AI</b>
+
+                <span>
+                    Designed for a more balanced student life.
+                </span>
+
+                <span>
+                    Prototype · Data stored on this device
+                </span>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= STUDY TASK MODAL ================= -->
+
+    <div class="backdrop" id="taskModal">
+
+        <form class="modal" id="taskForm">
+
+            <div class="modal-head">
+
+                <div>
+                    <label>ACADEMIC PLANNER</label>
+                    <h2 id="taskModalTitle">Add study task</h2>
+                </div>
+
+                <button
+                    type="button"
+                    class="x"
+                    data-close="taskModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <label>
+                Task / topic
+
+                <input
+                    id="taskTitle"
+                    required
+                    maxlength="90"
+                    placeholder="e.g. Revise Data Structures"
+                >
+            </label>
+
+
+            <div class="form-row">
+
+                <label>
+                    Subject
+
+                    <input
+                        id="taskSubject"
+                        required
+                        maxlength="40"
+                        placeholder="e.g. DSA"
+                    >
+                </label>
+
+
+                <label>
+                    Due date
+
+                    <input
+                        id="taskDate"
+                        type="date"
+                        required
+                    >
+                </label>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <label>
+                    Estimated hours
+
+                    <input
+                        id="taskHours"
+                        type="number"
+                        min="0.25"
+                        max="24"
+                        step="0.25"
+                        value="1"
+                        required
+                    >
+                </label>
+
+
+                <label>
+                    Priority
+
+                    <select id="taskPriority">
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Low</option>
+                    </select>
+                </label>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="outline"
+                    data-close="taskModal"
+                >
+                    Cancel
+                </button>
+
+                <button class="primary">
+                    Save task
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- ================= EXPENSE MODAL ================= -->
+
+    <div class="backdrop" id="expenseModal">
+
+        <form class="modal" id="expenseForm">
+
+            <div class="modal-head">
+
+                <div>
+                    <label>MONEY MANAGER</label>
+                    <h2>Add an expense</h2>
+                </div>
+
+                <button
+                    type="button"
+                    class="x"
+                    data-close="expenseModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <label>
+                Expense description
+
+                <input
+                    id="expenseTitle"
+                    required
+                    maxlength="90"
+                    placeholder="e.g. Lunch at canteen"
+                >
+            </label>
+
+
+            <div class="form-row">
+
+                <label>
+                    Amount (₹)
+
+                    <input
+                        id="expenseAmount"
+                        type="number"
+                        min="1"
+                        step="0.01"
+                        required
+                        placeholder="120"
+                    >
+                </label>
+
+
+                <label>
+                    Category
+
+                    <select id="expenseCategory">
+                        <option>Food</option>
+                        <option>Travel</option>
+                        <option>Education</option>
+                        <option>Entertainment</option>
+                        <option>Shopping</option>
+                        <option>Health</option>
+                        <option>Other</option>
+                    </select>
+                </label>
+
+            </div>
+
+
+            <label>
+                Date
+
+                <input
+                    id="expenseDate"
+                    type="date"
+                    required
+                >
+            </label>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="outline"
+                    data-close="expenseModal"
+                >
+                    Cancel
+                </button>
+
+                <button class="primary">
+                    Save expense
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- ================= BUDGET MODAL ================= -->
+
+    <div class="backdrop" id="budgetModal">
+
+        <form class="modal compact" id="budgetForm">
+
+            <div class="modal-head">
+
+                <div>
+                    <label>FINANCIAL SETTINGS</label>
+                    <h2>Monthly budget</h2>
+                </div>
+
+                <button
+                    type="button"
+                    class="x"
+                    data-close="budgetModal"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <label>
+                Set your monthly budget (₹)
+
+                <input
+                    id="budgetInput"
+                    type="number"
+                    min="0"
+                    step="100"
+                    required
+                >
+            </label>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="outline"
+                    data-close="budgetModal"
+                >
+                    Cancel
+                </button>
+
+                <button class="primary">
+                    Save budget
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- Toast Notification -->
+
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+    ></div>
+
+
+    <!-- JavaScript -->
+
+    <script src="tracker.js"></script>
+
+</body>
+</html>
