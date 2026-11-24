@@ -1,0 +1,17 @@
+{
+  "name": "student360-ai",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI-powered student academic and financial management platform",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@google/genai": "^3.6.1",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.5"
+  }
+}
